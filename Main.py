@@ -42,10 +42,10 @@ class Interact:
                 print(x, sep = sepi, end =endi)
         def Input(prompt):
                 return input(prompt)
-class Cypher:
+class Cipher:
         global basicline
         basicline = ''' !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`{|}~АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЭЮЯв'''
-        class GridCypher:
+        class GridCipher:
                 def Encoding():
                         opentext = []
                         while True:
@@ -70,14 +70,14 @@ class Cypher:
                                 print((" "*100), "*")
                 def Decoding():
                         print(basicline)
-                        cyphertext = []
+                        ciphertext = []
                         while True:
                                 string = input()
                                 if string != "///stop///":
-                                        cyphertext.append(string)
+                                        ciphertext.append(string)
                                 else:
                                         break
-                        for x in cyphertext:
+                        for x in ciphertext:
                                 if basicline[x.find("*")] == "в":
                                         print()
                                         continue
@@ -85,7 +85,7 @@ class Cypher:
         class HashingQuadriplets:
                 def Encoding():
                         opentext = []
-                        cyphertext = []
+                        ciphertext = []
                         while True:
                                 string = input()
                                 if string != "///stop///":
@@ -102,22 +102,22 @@ class Cypher:
                                         symb = bin(basicline.find(y)).replace("0b","")
                                         symb = ("0"*(8-len(symb)))+symb
                                         bytetext = bytetext + symb
-                                cyphertext.append(str(bytetext))
-                        for x in cyphertext:
+                                ciphertext.append(str(bytetext))
+                        for x in ciphertext:
                                 for i in range (0, len(x), 4):
                                         strb = x[i] + x[i + 1] + x[i + 2] + x[i + 3]
                                         print(basicline[int(strb, 2)], end = "")
                                 print()
                 def Decoding():
                         opentext = []
-                        cyphertext = []
+                        ciphertext = []
                         while True:
                                 string = input()
                                 if string != "///stop///":
-                                        cyphertext.append(string)
+                                        ciphertext.append(string)
                                 else:
                                         break
-                        for x in cyphertext:
+                        for x in ciphertext:
                                 bytetext = ""
                                 for y in x:
                                         symb = bin(basicline.find(y)).replace("0b", "")
@@ -129,8 +129,24 @@ class Cypher:
                                         strb = x[i] + x[i + 1] + x[i + 2] + x[i + 3] + x[i + 4] + x[i + 5] + x[i + 6] + x[i + 7]
                                         print(basicline[int(strb, 2)], end = "")
                                 print()
-        class BaconCypher:
+        class BaconCipher:
                 def Encoding():
-                        pass
+                        opentext = []
+                        ciphertext = []
+                        while True:
+                                string = input()
+                                if string != "///stop///":
+                                        opentext.append(string)
+                                else:
+                                        break
+                        # under construction until finding the most convenient way of ciphering (or ways, lol)
                 def Decoding():
-                        pass
+                        opentext = []
+                        ciphertext = []
+                        while True:
+                                string = input()
+                                if string != "///stop///":
+                                        ciphertext.append(string)
+                                else:
+                                        break
+                        # the same
